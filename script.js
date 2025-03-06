@@ -1,16 +1,12 @@
 //your JS code here. If required.
 
-let name = document.getElementById("text")
-let time = document.getElementById("delay")
-let btn = document.getElementById("btn")
-let res = document.getElementById("output")
-btn.addEventListener("click",()=>{
-	let firstVal = name.value
-	let secVal = time.value
-	 setTimeout(()=>{
+document.getElementById("btn").addEventListener("click", async function() {
+    const message = document.getElementById("text").value;
+    const delay = document.getElementById("delay").value;
+    await delayMessage(delay);
+    document.getElementById("output").innerText = message;
+});
 
-		  res.innerText = firstVal
-		 
-	 },secVal)
-	
-})
+function delayMessage(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
